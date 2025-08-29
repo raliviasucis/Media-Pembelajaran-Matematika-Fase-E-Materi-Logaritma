@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Pembelajaran Interaktif - Logaritma Kelas 10</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3498db;
+      --secondary: #2c3e50;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --dark: #34495e;
+      --purple: #9b59b6;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    h1 {
+      color: var(--secondary);
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+    
+    .subtitle {
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .tab-btn {
+      padding: 12px 24px;
+      background: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .tab-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.3s ease;
+      margin-bottom: 25px;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card h2 {
+      color: var(--secondary);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card h2 i {
+      color: var(--primary);
+    }
+    
+    .theory-content {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    
+    .formula {
+      background: var(--light);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .properties-list {
+      list-style-type: none;
+    }
+    
+    .properties-list li {
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .properties-list li:before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 10px;
+    }
+    
+    .example-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .example-title {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .visualization {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .visual-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    
+    .base, .exponent, .result {
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    .base {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .exponent {
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .result {
+      color: var(--success);
+      font-weight: bold;
+    }
+    
+    .practice-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .question-box {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    input {
+      padding: 14px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    
+    input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+      min-width: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #1e2a38;
+      transform: translateY(-2px);
+    }
+    
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-accent:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+    }
+    
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background: #27ae60;
+      transform: translateY(-2px);
+    }
+    
+    .btn-warning {
+      background: var(--warning);
+      color: white;
+    }
+    
+    .btn-warning:hover {
+      background: #e67e22;
+      transform: translateY(-2px);
+    }
+    
+    .result-feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .correct {
+      background: rgba(46, 204, 113, 0.2);
+      color: var(--success);
+    }
+    
+    .incorrect {
+      background: rgba(231, 76, 60, 0.2);
+      color: var(--accent);
+    }
+    
+    .score-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--light);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      background: var(--success);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    
+    .explanation {
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--light);
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .explanation.show {
+      display: block;
+    }
+    
+    .step {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .step:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    .quiz-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .quiz-option {
+      padding: 15px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    
+    .quiz-option:hover {
+      border-color: var(--primary);
+      background: #f8f9fa;
+    }
+    
+    .quiz-option.selected {
+      border-color: var(--primary);
+      background: rgba(52, 152, 219, 0.1);
+    }
+    
+    .quiz-option.correct {
+      border-color: var(--success);
+      background: rgba(46, 204, 113, 0.1);
+    }
+    
+    .quiz-option.incorrect {
+      border-color: var(--accent);
+      background: rgba(231, 76, 60, 0.1);
+    }
+    
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .materi-section {
+      margin-bottom: 30px;
+    }
+    
+    .materi-section h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .materi-section h3 i {
+      color: var(--purple);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+      }
+      
+      .tab-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+      
+      .score-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-calculator"></i> Media Pembelajaran Interaktif - Logaritma</h1>
+      <p class="subtitle">Matematika Kelas 10 | Kurikulum Merdeka</p>
+    </header>
+    
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="materi"><i class="fas fa-book"></i> Materi</button>
+      <button class="tab-btn" data-tab="latihan"><i class="fas fa-pencil-alt"></i> Latihan Soal</button>
+      <button class="tab-btn" data-tab="kuis"><i class="fas fa-tasks"></i> Kuis</button>
+    </div>
+    
+    <div id="materi" class="tab-content active">
+      <div class="card">
+        <h2><i class="fas fa-book"></i> Pengertian Logaritma</h2>
+        <div class="theory-content">
+          <p>Logaritma adalah operasi matematika yang merupakan kebalikan dari eksponen. Logaritma menjawab pertanyaan: "Berapa pangkat yang diperlukan untuk mendapatkan suatu bilangan?"</p>
+          
+          <div class="formula">
+            Jika a<sup>b</sup> = c, maka <sup>a</sup>log c = b
+          </div>
+          
+          <p>Di mana:</p>
+          <ul class="properties-list">
+            <li><strong>a</strong> adalah basis (a > 0, a ≠ 1)</li>
+            <li><strong>b</strong> adalah eksponen atau pangkat</li>
+            <li><strong>c</strong> adalah numerus (c > 0)</li>
+          </ul>
+          
+          <div class="example-box">
+            <div class="example-title">Contoh:</div>
+            <p>2<sup>3</sup> = 8, maka <sup>2</sup>log 8 = 3</p>
+            <p>5<sup>2</sup> = 25, maka <sup>5</sup>log 25 = 2</p>
+            <p>10<sup>3</sup> = 1000, maka <sup>10</sup>log 1000 = 3</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2><i class="fas fa-list-ol"></i> Sifat-Sifat Logaritma</h2>
+        <div class="theory-content">
+          <ul class="properties-list">
+            <li><strong>Perkalian:</strong> log<sub>a</sub>(MN) = log<sub>a</sub>M + log<sub>a</sub>N</li>
+            <li><strong>Pembagian:</strong> log<sub>a</sub>(M/N) = log<sub>a</sub>M - log<sub>a</sub>N</li>
+            <li><strong>Pangkat:</strong> log<sub>a</sub>(M<sup>n</sup>) = n × log<sub>a</sub>M</li>
+            <li><strong>Bilangan Pecahan:</strong> log<sub>a</sub>(1/M) = -log<sub>a</sub>M</li>
+            <li><strong>Perubahan Basis:</strong> log<sub>a</sub>M = log<sub>b</sub>M / log<sub>b</sub>a</li>
+            <li><strong>Basis dan Numerus Sama:</strong> log<sub>a</sub>a = 1</li>
+            <li><strong>Logaritma 1:</strong> log<sub>a</sub>1 = 0</li>
+          </ul>
+          
+          <div class="example-box">
+            <div class="example-title">Contoh Sifat Perkalian:</div>
+            <p><sup>2</sup>log 4 + <sup>2</sup>log 8 = <sup>2</sup>log (4 × 8) = <sup>2</sup>log 32 = 5</p>
+          </div>
+          
+          <div class="example-box">
+            <div class="example-title">Contoh Sifat Pangkat:</div>
+            <p>2 × <sup>3</sup>log 9 = <sup>3</sup>log 9<sup>2</sup> = <sup>3</sup>log 81 = 4</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2><i class="fas fa-eye"></i> Visualisasi Konsep</h2>
+        <div class="visualization">
+          <p>Ubah nilai untuk melihat hubungan eksponen dan logaritma:</p>
+          
+          <div class="visual-box">
+            <div class="base">
+              <p>Basis (a)</p>
+              <input type="number" id="baseInput" value="2" min="2" max="10" onchange="updateVisualization()">
+            </div>
+            
+            <div class="exponent">
+              <p>Eksponen (b)</p>
+              <input type="number" id="exponentInput" value="3" min="1" max="5" onchange="updateVisualization()">
+            </div>
+            
+            <div class="result">
+              <p>Hasil (c)</p>
+              <p id="resultValue">8</p>
+            </div>
+          </div>
+          
+          <p>Dari visualisasi di atas, kita dapat menyimpulkan:</p>
+          <p id="visualConclusion">2<sup>3</sup> = 8, maka <sup>2</sup>log 8 = 3</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="latihan" class="tab-content">
+      <div class="card">
+        <h2><i class="fas fa-pencil-alt"></i> Latihan Soal</h2>
+        <div class="practice-container">
+          <div class="question-box">
+            <p id="soal">Klik tombol "Soal Baru" untuk memulai latihan</p>
+          </div>
+          
+          <div class="input-group">
+            <input type="number" id="jawaban" placeholder="Masukkan jawaban kamu" step="any">
+          </div>
+          
+          <div class="buttons">
+            <button class="btn-primary" onclick="cekJawaban()">
+              <i class="fas fa-check"></i> Cek Jawaban
+            </button>
+            <button class="btn-secondary" onclick="soalBaru()">
+              <i class="fas fa-sync"></i> Soal Baru
+            </button>
+            <button class="btn-accent" onclick="lihatPenjelasan()">
+              <i class="fas fa-lightbulb"></i> Lihat Penjelasan
+            </button>
+          </div>
+          
+          <div id="hasil" class="result-feedback"></div>
+          
+          <div id="penjelasan" class="explanation">
+            <h3><i class="fas fa-info-circle"></i> Penjelasan Langkah Demi Langkah</h3>
+            <div id="stepExplanation"></div>
+          </div>
+          
+          <div class="score-container">
+            <div>
+              <p>Skor: <span id="skor">0</span>/<span id="total">0</span></p>
+              <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+              </div>
+            </div>
+            <div>
+              <p>Tingkat Kesulitan: <span id="difficulty">Mudah</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="kuis" class="tab-content">
+      <div class="card">
+        <h2><i class="fas fa-tasks"></i> Kuis Logaritma</h2>
+        <div class="practice-container">
+          <div class="question-box">
+            <p id="quizSoal">Klik tombol "Mulai Kuis" untuk memulai</p>
+          </div>
+          
+          <div class="quiz-container" id="quizOptions">
+            <!-- Opsi kuis akan diisi oleh JavaScript -->
+          </div>
+          
+          <div id="quizFeedback" class="result-feedback"></div>
+          
+          <div class="quiz-nav">
+            <button class="btn-warning" onclick="previousQuestion()">
+              <i class="fas fa-arrow-left"></i> Sebelumnya
+            </button>
+            <button class="btn-success" onclick="nextQuestion()">
+              Selanjutnya <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="score-container">
+            <div>
+              <p>Pertanyaan: <span id="currentQuestion">0</span>/<span id="totalQuestions">0</span></p>
+            </div>
+            <div>
+              <p>Skor Kuis: <span id="quizScore">0</span></p>
+            </div>
+          </div>
+          
+          <div class="buttons">
+            <button class="btn-primary" onclick="startQuiz()">
+              <i class="fas fa-play"></i> Mulai Kuis
+            </button>
+            <button class="btn-accent" onclick="submitQuiz()">
+              <i class="fas fa-paper-plane"></i> Kumpulkan Kuis
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2023 Media Pembelajaran Interaktif Logaritma - Untuk Kelas 10 SMA</p>
+      <p>Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk pendidikan Indonesia</p>
+    </footer>
+  </div>
+
+  <script>
+    // Kumpulan soal latihan dengan berbagai tingkat kesulitan dan penjelasan
+    const soalList = [
+      {
+        soal: "Hitung log₂(8)",
+        jawaban: 3,
+        penjelasan: [
+          "Kita tahu bahwa 2³ = 8",
+          "Jadi log₂(8) = 3"
+        ],
+        tingkat: "mudah"
+      },
+      {
+        soal: "Hitung log₅(25)",
+        jawaban: 2,
+        penjelasan: [
+          "Kita tahu bahwa 5² = 25",
+          "Jadi log₅(25) = 2"
+        ],
+        tingkat: "mudah"
+      },
+      {
+        soal: "Hitung log₁₀(1000)",
+        jawaban: 3,
+        penjelasan: [
+          "Kita tahu bahwa 10³ = 1000",
+          "Jadi log₁₀(1000) = 3"
+        ],
+        tingkat: "mudah"
+      },
+      {
+        soal: "Hitung log₃(81)",
+        jawaban: 4,
+        penjelasan: [
+          "Kita tahu bahwa 3⁴ = 81",
+          "Jadi log₃(81) = 4"
+        ],
+        tingkat: "sedang"
+      },
+      {
+        soal: "Hitung log₄(64)",
+        jawaban: 3,
+        penjelasan: [
+          "Kita tahu bahwa 4³ = 64",
+          "Jadi log₄(64) = 3"
+        ],
+        tingkat: "sedang"
+      },
+      {
+        soal: "Sederhanakan log₃(27) + log₃(9)",
+        jawaban: 5,
+        penjelasan: [
+          "Gunakan sifat logaritma: logₐ(M) + logₐ(N) = logₐ(M×N)",
+          "Jadi log₃(27) + log₃(9) = log₃(27×9) = log₃(243)",
+          "Kita tahu bahwa 3⁵ = 243",
+          "Jadi hasilnya adalah 5"
+        ],
+        tingkat: "sedang"
+      },
+      {
+        soal: "Sederhanakan 2⋅log₅(25) - log₅(5)",
+        jawaban: 3,
+        penjelasan: [
+          "Kita tahu bahwa log₅(25) = 2 dan log₅(5) = 1",
+          "Jadi 2⋅2 - 1 = 4 - 1 = 3"
+        ],
+        tingkat: "sulit"
+      },
+      {
+        soal: "Jika log₂(3) ≈ 1.585, hitung log₂(24)",
+        jawaban: 4.585,
+        penjelasan: [
+          "Faktorkan 24 menjadi 8×3",
+          "log₂(24) = log₂(8×3) = log₂(8) + log₂(3)",
+          "log₂(8) = 3 dan log₂(3) ≈ 1.585",
+          "Jadi 3 + 1.585 = 4.585"
+        ],
+        tingkat: "sulit"
+      }
+    ];
+
+    // Kumpulan soal kuis
+    const quizQuestions = [
+      {
+        question: "Berapakah nilai dari log₅(25)?",
+        options: ["2", "5", "25", "125"],
+        answer: 0
+      },
+      {
+        question: "Jika log₂(x) = 4, maka x adalah...",
+        options: ["8", "16", "32", "64"],
+        answer: 1
+      },
+      {
+        question: "Bentuk sederhana dari log₃(18) - log₃(2) adalah...",
+        options: ["log₃(9)", "log₃(16)", "log₃(20)", "log₃(36)"],
+        answer: 0
+      },
+      {
+        question: "Nilai dari ²log 8 + ²log 4 adalah...",
+        options: ["4", "5", "6", "7"],
+        answer: 1
+      },
+      {
+        question: "Jika log 2 = 0.3010 dan log 3 = 0.4771, maka log 6 adalah...",
+        options: ["0.1761", "0.7781", "0.8451", "0.9030"],
+        answer: 1
+      }
+    ];
+
+    let soalAktif = null;
+    let skor = 0;
+    let total = 0;
+    let tingkatKesulitan = "mudah";
+    
+    let currentQuizQuestion = 0;
+    let quizScore = 0;
+    let userQuizAnswers = Array(quizQuestions.length).fill(null);
+    let quizStarted = false;
+
+    // Fungsi untuk tab navigation
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+        
+        // Update active tab button
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+        
+        // Update active tab content
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(tab).classList.add('active');
+      });
+    });
+
+    function updateVisualization() {
+      const base = parseInt(document.getElementById("baseInput").value);
+      const exponent = parseInt(document.getElementById("exponentInput").value);
+      const result = Math.pow(base, exponent);
+      
+      document.getElementById("resultValue").textContent = result;
+      document.getElementById("visualConclusion").innerHTML = 
+        `${base}<sup>${exponent}</sup> = ${result}, maka <sup>${base}</sup>log ${result} = ${exponent}`;
+    }
+
+    function soalBaru() {
+      // Filter soal berdasarkan tingkat kesulitan
+      const filteredSoal = soalList.filter(soal => soal.tingkat === tingkatKesulitan);
+      
+      // Pilih soal secara acak dari yang sudah difilter
+      soalAktif = filteredSoal[Math.floor(Math.random() * filteredSoal.length)];
+      
+      document.getElementById("soal").innerHTML = soalAktif.soal;
+      document.getElementById("hasil").innerText = "";
+      document.getElementById("hasil").className = "result-feedback";
+      document.getElementById("jawaban").value = "";
+      document.getElementById("penjelasan").className = "explanation";
+      
+      // Update tampilan tingkat kesulitan
+      document.getElementById("difficulty").textContent = 
+        tingkatKesulitan.charAt(0).toUpperCase() + tingkatKesulitan.slice(1);
+    }
+
+    function cekJawaban() {
+      if (!soalAktif) {
+        alert("Silakan klik 'Soal Baru' terlebih dahulu!");
+        return;
+      }
+      
+      const jawabanUser = parseFloat(document.getElementById("jawaban").value);
+      
+      if (isNaN(jawabanUser)) {
+        alert("Silakan masukkan jawaban berupa angka!");
+        return;
+      }
+      
+      total++;
+      
+      if (jawabanUser === soalAktif.jawaban) {
+        skor++;
+        document.getElementById("hasil").innerText = "✅ Jawaban Benar!";
+        document.getElementById("hasil").className = "result-feedback correct";
+      } else {
+        document.getElementById("hasil").innerText = 
+          `❌ Jawaban Salah. Jawaban benar: ${soalAktif.jawaban}`;
+        document.getElementById("hasil").className = "result-feedback incorrect";
+      }
+      
+      // Update skor dan progress bar
+      document.getElementById("skor").textContent = skor;
+      document.getElementById("total").textContent = total;
+      const progressPercentage = total > 0 ? (skor / total) * 100 : 0;
+      document.getElementById("progressBar").style.width = `${progressPercentage}%`;
+      
+      // Naikkan tingkat kesulitan setelah 3 soal benar
+      if (skor % 3 === 0 && skor > 0) {
+        if (tingkatKesulitan === "mudah") {
+          tingkatKesulitan = "sedang";
+        } else if (tingkatKesulitan === "sedang") {
+          tingkatKesulitan = "sulit";
+        }
+      }
+    }
+
+    function lihatPenjelasan() {
+      if (!soalAktif) {
+        alert("Silakan klik 'Soal Baru' terlebih dahulu!");
+        return;
+      }
+      
+      const explanationDiv = document.getElementById("penjelasan");
+      const stepExplanationDiv = document.getElementById("stepExplanation");
+      
+      // Build explanation steps
+      let stepsHTML = "";
+      soalAktif.penjelasan.forEach((step, index) => {
+        stepsHTML += `<div class="step">${step}</div>`;
+      });
+      
+      stepExplanationDiv.innerHTML = stepsHTML;
+      explanationDiv.className = "explanation show";
+    }
+
+    // Fungsi-fungsi untuk kuis
+    function startQuiz() {
+      quizStarted = true;
+      currentQuizQuestion = 0;
+      quizScore = 0;
+      userQuizAnswers.fill(null);
+      
+      document.getElementById("quizScore").textContent = "0";
+      document.getElementById("currentQuestion").textContent = "1";
+      document.getElementById("totalQuestions").textContent = quizQuestions.length;
+      
+      loadQuizQuestion(0);
+    }
+
+    function loadQuizQuestion(index) {
+      if (index < 0 || index >= quizQuestions.length) return;
+      
+      currentQuizQuestion = index;
+      const question = quizQuestions[index];
+      
+      document.getElementById("quizSoal").textContent = question.question;
+      document.getElementById("currentQuestion").textContent = index + 1;
+      
+      const optionsContainer = document.getElementById("quizOptions");
+      optionsContainer.innerHTML = "";
+      
+      question.options.forEach((option, i) => {
+        const optionElement = document.createElement("div");
+        optionElement.className = "quiz-option";
+        if (userQuizAnswers[index] === i) {
+          optionElement.classList.add("selected");
+        }
+        optionElement.textContent = option;
+        optionElement.dataset.index = i;
+        optionElement.addEventListener("click", () => selectOption(i));
+        optionsContainer.appendChild(optionElement);
+      });
+      
+      document.getElementById("quizFeedback").textContent = "";
+      document.getElementById("quizFeedback").className = "result-feedback";
+    }
+
+    function selectOption(optionIndex) {
+      userQuizAnswers[currentQuizQuestion] = optionIndex;
+      
+      const options = document.querySelectorAll(".quiz-option");
+      options.forEach(option => {
+        option.classList.remove("selected");
+      });
+      
+      options[optionIndex].classList.add("selected");
+    }
+
+    function nextQuestion() {
+      if (!quizStarted) {
+        alert("Silakan mulai kuis terlebih dahulu!");
+        return;
+      }
+      
+      if (currentQuizQuestion < quizQuestions.length - 1) {
+        loadQuizQuestion(currentQuizQuestion + 1);
+      }
+    }
+
+    function previousQuestion() {
+      if (!quizStarted) {
+        alert("Silakan mulai kuis terlebih dahulu!");
+        return;
+      }
+      
+      if (currentQuizQuestion > 0) {
+        loadQuizQuestion(currentQuizQuestion - 1);
+      }
+    }
+
+    function submitQuiz() {
+      if (!quizStarted) {
+        alert("Silakan mulai kuis terlebih dahulu!");
+        return;
+      }
+      
+      // Hitung skor
+      quizScore = 0;
+      userQuizAnswers.forEach((answer, index) => {
+        if (answer === quizQuestions[index].answer) {
+          quizScore++;
+        }
+      });
+      
+      // Tampilkan hasil
+      document.getElementById("quizScore").textContent = quizScore;
+      
+      const percentage = (quizScore / quizQuestions.length) * 100;
+      let message = "";
+      
+      if (percentage >= 80) {
+        message = "🎉 Excellent! Kamu menguasai materi logaritma dengan baik!";
+      } else if (percentage >= 60) {
+        message = "👍 Bagus! Tingkatkan lagi pemahamanmu tentang logaritma.";
+      } else {
+        message = "✋ Jangan menyerah! Pelajari lagi materi logaritma dan coba lagi.";
+      }
+      
+      document.getElementById("quizFeedback").textContent = 
+        `Kamu menjawab ${quizScore} dari ${quizQuestions.length} soal dengan benar. ${message}`;
+      document.getElementById("quizFeedback").className = "result-feedback";
+      
+      quizStarted = false;
+    }
+
+    // Initialize visualization
+    updateVisualization();
+  </script>
+</body>
+</html>
